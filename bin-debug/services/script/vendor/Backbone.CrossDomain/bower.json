@@ -1,0 +1,9 @@
+{
+  "name": "Backbone.CrossDomain",
+  "version": "0.0.0",
+  "commit": "2e29d26644c606d0ea121fb8b04e9be33b7092e3",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/victorquinn/Backbone.CrossDomain"
+  }
+}

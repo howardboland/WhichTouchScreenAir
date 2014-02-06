@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:NavigatorContent xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx" creationComplete="onCreate(event)" width="100%" height="100%" backgroundColor="0xFEFEFE">
+	<fx:Script>
+		<![CDATA[
+			import com.which.utils.Console;
+			
+			import org.osmf.events.LoadEvent;
+			import org.osmf.events.MediaPlayerStateChangeEvent;
+			
+			public static var VIDEO_LOOPED:String = "VIDEO_LOOPED";
+			public static var GO_PORTFOLIO:String 	= "GO_PORTFOLIO";
+			
+			
+			protected var timeoutLoops:int = 0;
+			protected var loopCounts:int = 0;
+			protected function onCreate( e:Event ):void
+			{
+				Console.log("onCreate", this);	
+				
+			}
+			public function onInit( e:Event=null ):void
+			{
+				Console.log("onInit", this);
+				
+					
+					startup();
+					
+					
+			
+			}
+			protected function onComplete( e:Event ):void
+			{
+				Console.log("onComplete", this);
+				video.removeEventListener( Event.COMPLETE, onComplete );
+				
+
+				//if (loopCounts<timeoutLoops)
+				//{
+			//		loopCounts++;	
+			//	} else {
+				
+					
+					Console.log("onComplete pausing!", this);
+					shutdown();
+					this.dispatchEvent( new Event( VIDEO_LOOPED ));
+					
+					
+			//	}
+				
+				
+			}
+			protected function startup():void
+			{
+				if (video!=null)
+				{
+					video.videoObject.smoothing = true;
+					video.removeEventListener( Event.COMPLETE, onComplete );
+					video.addEventListener( Event.COMPLETE, onComplete );
+					video.loop = false;
+					video.autoRewind = false;
+					video.play();
+					stage.addEventListener( MouseEvent.MOUSE_MOVE, portfolio);
+				}
+				
+			}
+			protected function shutdown():void
+			{
+				if (video!=null)
+				{
+					stage.removeEventListener( MouseEvent.MOUSE_MOVE, portfolio);
+					video.removeEventListener( Event.COMPLETE, onComplete );
+					video.loop = false;
+					video.pause();
+					video.stop();
+					loopCounts = 0;
+					
+				}
+			}
+			protected function portfolio( e:Event=null ):void
+			{
+				shutdown();
+				this.dispatchEvent( new Event( GO_PORTFOLIO ) );
+			}
+			protected function createVideo( e:Event ):void
+			{
+				startup();
+			}
+			protected function onLoading( e:LoadEvent ):void
+			{
+				
+			}
+			
+			protected function stateChange(e:MediaPlayerStateChangeEvent):void {
+				
+				Console.log( e.state, this)
+			}
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	<s:VideoDisplay creationComplete="createVideo(event)" mediaPlayerStateChange="stateChange(event)"  
+					bytesLoadedChange="onLoading(event)"   
+					horizontalCenter="0" verticalCenter="0" autoRewind="true" id="video" loop="true" pauseWhenHidden="true" width="100%" height="100%" scaleMode="letterbox"  source="resources/video/which-animatic.f4v">
+	</s:VideoDisplay>
+</s:NavigatorContent>

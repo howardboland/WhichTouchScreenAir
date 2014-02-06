@@ -1,0 +1,51 @@
+/*
+ PureMVC AS3 Demo - Flex Application Skeleton 
+ Copyright (c) 2007 Daniele Ugoletti <daniele.ugoletti@puremvc.org>
+ Your reuse is governed by the Creative Commons Attribution 3.0 License
+*/
+@namespace s "library://ns.adobe.com/flex/spark";
+@namespace mx "library://ns.adobe.com/flex/mx";
+
+.global
+{
+    highlightAlphas:        .5, .25;
+    borderColor:            #939A9D;
+    headerColors:           #456F84, #9ABBC9;
+    themeColor:             #75B1CE;
+    rollOverColor:          #D6E6EE;
+    selectionColor:         #B8D5E4;
+}
+s|Label {
+	fontFamily: "Standard-Regular";
+}
+.error
+{
+    fontWeight:         "bold";
+    fontSize:           11;
+	color:				#990000;
+}
+
+.newsBody {
+	fontFamily: "Standard-Light";
+	color: #738087;
+	fontSize: 36;
+}
+.newsTitle {
+	fontFamily: "Standard-Light";
+	color: #F3362F;
+	fontSize: 36; 
+}
+.newsHeader {
+	fontFamily: "Standard-Regular";
+	fontSize: 14;
+	color: #000000;
+}
+#btnWeb s|Label, #btnPortfolio s|Label {
+	fontFamily: "Standard-Regular"; 
+	fontSize: 14;
+	color: #FFFFFF;
+}
+#btnBack s|Label {
+	fontFamily: "Standard-Regular";
+	fontSize: 14;
+}

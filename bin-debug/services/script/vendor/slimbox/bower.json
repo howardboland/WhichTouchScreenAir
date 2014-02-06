@@ -1,0 +1,9 @@
+{
+  "name": "slimbox",
+  "version": "0.0.0",
+  "commit": "0490567cafb0b8e2043f09c8bab263d770fa2a46",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/kayluhb/slimbox"
+  }
+}

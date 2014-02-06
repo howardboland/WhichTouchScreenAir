@@ -1,0 +1,861 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"newsfo",
+				"newsform"
+			],
+			[
+				"sort",
+				"sortable"
+			],
+			[
+				"drop",
+				"dropable"
+			],
+			[
+				"data",
+				"dataTransfer"
+			],
+			[
+				"dra",
+				"dragID"
+			],
+			[
+				"or",
+				"originalEvent"
+			],
+			[
+				"add",
+				"addClass"
+			],
+			[
+				"print",
+				"print_r"
+			],
+			[
+				"is",
+				"isPublic"
+			],
+			[
+				"News",
+				"newsform"
+			],
+			[
+				"news",
+				"NewsListView"
+			],
+			[
+				"te",
+				"text-indent"
+			],
+			[
+				"padd",
+				"padding"
+			],
+			[
+				"text",
+				"text-decoration"
+			],
+			[
+				"rg",
+				"rgba()"
+			],
+			[
+				"check",
+				"check_access"
+			],
+			[
+				"en",
+				"encryptionString"
+			],
+			[
+				"raw",
+				"raw_accesskey"
+			],
+			[
+				"m",
+				"md5"
+			],
+			[
+				"tex",
+				"text-align"
+			],
+			[
+				"tabl",
+				"table-row"
+			],
+			[
+				"c",
+				"table-cell"
+			],
+			[
+				"ta",
+				"table-cell"
+			],
+			[
+				"l",
+				"log"
+			],
+			[
+				"font",
+				"font-weight"
+			],
+			[
+				"di",
+				"display"
+			],
+			[
+				"bor",
+				"border"
+			],
+			[
+				"mar",
+				"margin"
+			],
+			[
+				"ma",
+				"margin-top"
+			],
+			[
+				"pa",
+				"padding-right"
+			],
+			[
+				"border",
+				"border-bottom"
+			],
+			[
+				"marg",
+				"margin-top"
+			],
+			[
+				"p",
+				"position"
+			],
+			[
+				"cl",
+				"clear"
+			],
+			[
+				"li",
+				"list-style-type"
+			],
+			[
+				"in",
+				"inline-block"
+			],
+			[
+				"t",
+				"table-row"
+			],
+			[
+				"padding",
+				"padding-bottom"
+			],
+			[
+				"bo",
+				"border-bottom"
+			],
+			[
+				"op",
+				"option	Tag"
+			],
+			[
+				"ORD",
+				"ORDER_RULE"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"v",
+				"View"
+			],
+			[
+				"sc",
+				"scripts"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "script/model/NewsModel.js",
+			"settings":
+			{
+				"buffer_size": 491,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "script/templates/newsform.html",
+			"settings":
+			{
+				"buffer_size": 1074,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "script/view/NewsListView.js",
+			"settings":
+			{
+				"buffer_size": 4072,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "script/view/NewsListItem.js",
+			"settings":
+			{
+				"buffer_size": 2161,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "script/view/NewsFormView.js",
+			"settings":
+			{
+				"buffer_size": 2525,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "css/newsform.css",
+			"settings":
+			{
+				"buffer_size": 295,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "css/news.css",
+			"settings":
+			{
+				"buffer_size": 808,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "<div class=\"insert\">\n	<input type=\"text\" id=\"addnews\" name=\"news\" placeholder=\"Add a news title...\" value=\"\" class=\"form-control\" />\n	<input type=\"button\" id=\"submit-news\" value=\"Submit\" class=\"btn btn-primary\"/>\n</div>\n<ul/>",
+			"file": "script/templates/newslist.html",
+			"file_size": 210,
+			"file_write_time": 1388839107000000,
+			"settings":
+			{
+				"buffer_size": 225,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "script/templates/newsitem.html",
+			"settings":
+			{
+				"buffer_size": 83,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "script/collection/NewsCollection.js",
+			"settings":
+			{
+				"buffer_size": 578,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "script/main.js",
+			"settings":
+			{
+				"buffer_size": 1981,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "news.php",
+			"settings":
+			{
+				"buffer_size": 4494,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 167.0,
+		"selected_items":
+		[
+			[
+				"view",
+				"View In Browser"
+			],
+			[
+				"browser",
+				"View In Browser"
+			],
+			[
+				"brow",
+				"View In Browser"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"html f",
+				"Snippet: HTML - HTML foundation"
+			],
+			[
+				"html",
+				"Set Syntax: HTML"
+			],
+			[
+				"Package Control: ins",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: Ins",
+				"Package Control: Install Package"
+			],
+			[
+				"Snippet:html",
+				"Snippet: html"
+			],
+			[
+				"package install",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/Howard/Documents/WhichTouchscreen/resources/services/news.php",
+		"/Users/Howard/Documents/WhichTouchscreen/resources/services/script/view/NavigationListItem.js",
+		"/Users/Howard/Documents/WhichTouchscreen/resources/services/script/view/NewsListItem.js",
+		"/Users/Howard/Documents/WhichTouchscreen/resources/services/script/view/NavigationListView.js",
+		"/Users/Howard/Documents/WhichTouchscreen/resources/services/index.html",
+		"/Users/Howard/Documents/WhichTouchscreen/resources/services/script/templates/login.html",
+		"/Users/Howard/Documents/WhichTouchscreen/resources/services/script/templates/newsform.html",
+		"/Users/Howard/Documents/WhichTouchscreen/resources/services/script/view/NewsListView.js",
+		"/Users/Howard/Documents/WhichTouchscreen/resources/services/script/view/NewsFormView.js",
+		"/Users/Howard/Documents/WhichTouchscreen/resources/services/script/templates/newslist.html",
+		"/Users/Howard/Documents/WhichTouchscreen/resources/services/css/newsform.css",
+		"/Users/Howard/Documents/WhichTouchscreen/resources/services/script/templates/newsitem.html",
+		"/Users/Howard/Documents/WhichTouchscreen/resources/services/css/login.css",
+		"/Users/Howard/Documents/WhichTouchscreen/resources/services/css/style.css",
+		"/Users/Howard/Documents/WhichTouchscreen/resources/services/script/model/NewsModel.js",
+		"/Users/Howard/Documents/WhichTouchscreen/resources/services/script/collection/NewsCollection.js",
+		"/Users/Howard/Documents/WhichTouchscreen/resources/services/script/view/AppView.js",
+		"/Users/Howard/Documents/WhichTouchscreen/resources/services/script/view/PageView.js",
+		"/Users/Howard/Documents/WhichTouchscreen/resources/services/script/view/LoginView.js",
+		"/Users/Howard/Documents/WhichTouchscreen/resources/services/pages.php",
+		"/Users/Howard/Documents/WhichTouchscreen/resources/services/Connections/functions.php",
+		"/Users/Howard/Documents/WhichTouchscreen/resources/services/css/topmenu.css",
+		"/Users/Howard/Documents/WhichTouchscreen/resources/services/script/model/PageModel.js",
+		"/Users/Howard/Documents/WhichTouchscreen/resources/services/script/main.js",
+		"/Users/Howard/Documents/WhichTouchscreen/resources/services/script/model/LoginModel.js",
+		"/Users/Howard/Documents/WhichTouchscreen/resources/services/css/news.css",
+		"/Users/Howard/Documents/WhichTouchscreen/resources/services/script/templates/navigation.html",
+		"/Users/Howard/Documents/WhichTouchscreen/resources/services/script/view/templates/loader.html",
+		"/Users/Howard/Documents/WhichTouchscreen/resources/services/Connections/which-backend.sublime-project",
+		"/Users/Howard/Desktop/mifonecase/create.html",
+		"/Volumes/Super/ArtScience Talkshow",
+		"/Users/Howard/Desktop/mifonecase/css/main.css",
+		"/Users/Howard/Desktop/portfolio/content.xml",
+		"/Volumes/Super/workspace-mac/WhichTouchscreen/Application.as",
+		"/Users/Howard/Documents/workspace/Portfolio/src/Application.as",
+		"/Users/Howard/Desktop/mifonecase/css/fonts.css",
+		"/Users/Howard/Documents/workspace/RequireJs/app/index.html",
+		"/Users/Howard/Documents/workspace/RequireJs/app/scripts/main.js",
+		"/Volumes/Super/workspace-mac/Plantronic/deploy/index.html",
+		"/Volumes/KINGSTON/workspace/Plantronic/live/index.html",
+		"/Users/Howard/Documents/workspace/RequireJs/app/scripts/views/app.js",
+		"/Users/Howard/Documents/workspace/RequireJs/app/build/app.build.js",
+		"/Users/Howard/Documents/workspace/RequireJs/dist/scripts/main.js",
+		"/Users/Howard/Documents/workspace/RequireJs/app/build/build.sh",
+		"/Users/Howard/Documents/workspace/requirejs/app/css/main.css",
+		"/Users/Howard/Documents/workspace/requirejs/app/css/buttons.css",
+		"/Users/Howard/Documents/workspace/requirejs/.bowerrc",
+		"/Users/Howard/Documents/workspace/requirejs/bower.json",
+		"/Users/Howard/Documents/workspace/Art_From_Synthetic_Biology/src/assets/css/Fonts.css",
+		"/Users/Howard/Documents/workspace/RequireJs/app/css/style.css",
+		"/Users/Howard/Documents/workspace/RequireJs/app/scripts/views/apps.js",
+		"/Users/Howard/Documents/workspace/RequireJs/bower.json",
+		"/Users/Howard/Documents/workspace/RequireJs/.bowerrc",
+		"/Users/Howard/Library/Application Support/Sublime Text 2/Packages/User/View In Browser.sublime-settings",
+		"/Users/Howard/Documents/workspace/RequireJs/app.js",
+		"/Users/Howard/Documents/workspace/RequireJs/app/__init__.py",
+		"/Users/Howard/Documents/workspace/RequireJs/app/scripts/venor/underscore-amd/underscore.js",
+		"/Users/Howard/Documents/workspace/RequireJs/components.json",
+		"/Users/Howard/Documents/workspace/RequireJs/vendors",
+		"/Users/Howard/Documents/workspace/RequireJs/scripts",
+		"/Users/Howard/Documents/workspace/RequireJs/apps",
+		"/Users/Howard/Documents/workspace/RequireJs/app",
+		"/Users/Howard/Documents/workspace/RequireJs/vencor",
+		"/Users/Howard/Documents/workspace/RequireJs/vendor",
+		"/Users/Howard/Library/Application Support/Sublime Text 2/Packages/AdvancedNewFile/README.md"
+	],
+	"find":
+	{
+		"height": 38.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"data",
+			"\n		",
+			"orderAttr",
+			"Navigation",
+			"Page",
+			"Navigation",
+			"NavigationCollection",
+			"NewsListView\nNewsListView\nNavigationCollection",
+			"NavigationListView",
+			"model",
+			"NavigationListItem",
+			";\n",
+			"Template",
+			"))",
+			"9999px",
+			"var",
+			"isotop",
+			"stylesheet",
+			"plantronics/",
+			"/plantronics/",
+			"\">\n"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"NewsCollection",
+			"NewsListView",
+			"NewsListItem",
+			""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 4,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "script/model/NewsModel.js",
+					"settings":
+					{
+						"buffer_size": 491,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								375,
+								375
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 492.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "script/templates/newsform.html",
+					"settings":
+					{
+						"buffer_size": 1074,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								979,
+								979
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "script/view/NewsListView.js",
+					"settings":
+					{
+						"buffer_size": 4072,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								848,
+								848
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "script/view/NewsListItem.js",
+					"settings":
+					{
+						"buffer_size": 2161,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								450,
+								450
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "script/view/NewsFormView.js",
+					"settings":
+					{
+						"buffer_size": 2525,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1088,
+								1088
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 44.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "css/newsform.css",
+					"settings":
+					{
+						"buffer_size": 295,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								72,
+								72
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "css/news.css",
+					"settings":
+					{
+						"buffer_size": 808,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								652,
+								652
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "script/templates/newslist.html",
+					"settings":
+					{
+						"buffer_size": 225,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								12,
+								18
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "script/templates/newsitem.html",
+					"settings":
+					{
+						"buffer_size": 83,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								21,
+								21
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "script/collection/NewsCollection.js",
+					"settings":
+					{
+						"buffer_size": 578,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								298,
+								298
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "script/main.js",
+					"settings":
+					{
+						"buffer_size": 1981,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								628,
+								613
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "news.php",
+					"settings":
+					{
+						"buffer_size": 4494,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								623,
+								623
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 216.0,
+	"status_bar_visible": true
+}

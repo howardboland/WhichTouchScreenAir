@@ -1,0 +1,10 @@
+<content root="resources/">
+<component type="box">
+	<component type="folder" x="-662.5" source="images/folder_01.jpg"/>
+	<component type="folder" x="-397.5" source="images/folder_02.jpg"/>
+	<component type="folder" x="-132.5" source="images/folder_03.jpg"/>
+	<component type="folder" x="132.5" source="images/folder_04.jpg"/>
+	<component type="folder" x="397.5" source="images/folder_05.jpg"/>
+	<component type="folder" x="662.5" source="images/folder_06.jpg"/>
+</component>
+</content>

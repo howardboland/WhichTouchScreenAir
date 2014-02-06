@@ -1,0 +1,80 @@
+#asset {
+	
+	float:left;
+	width: 100%;
+	margin:20px;
+
+	/*position:absolute;
+	bottom:0;
+*/
+}
+
+#asset div.insert {
+	padding:0px;
+	margin-bottom:0px;
+	margin-top:0px;
+	float:left;
+	clear: both;
+	width:500px;
+	overflow: hidden;
+
+	
+}
+div.insert input[type="text"] {
+	width: 80%;
+	margin-right:15px;
+	float:left;
+}
+#asset ul
+{
+	padding:0px;
+	margin:0px 25px 0px 0px;
+	text-indent: 0;
+	float:left;
+	width:100%;
+	overflow: hidden;
+
+}
+#asset ul * ul
+{
+	text-indent: 25px;
+}
+#asset ul li
+{	
+
+	width: auto;
+	clear:both;
+	list-style: none;
+	display:block;
+	text-wrap:none;
+	white-space:nowrap;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 13px;
+	color: white;
+	text-transform:uppercase;
+}
+
+
+#asset ul li a
+{
+	color:  white;
+	text-decoration: none;
+	width: 100%;
+	height: 20px;
+	float: left;
+	background: rgba(0,0,0, .9);
+	padding: 10px;
+
+
+}
+#asset ul li a:hover,#asset ul li a.selected
+{
+	color: #FFFFFF;
+	background: #0000DD;
+
+}
+#asset ul li a.selected
+{
+	font-weight:bold;
+}
+

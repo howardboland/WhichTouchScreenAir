@@ -1,0 +1,36 @@
+#assetform {
+	
+	display:none;
+	float:left;
+	margin-left:20px;
+	width: 450px;
+
+
+	/*position:absolute;
+	bottom:0;
+*/
+}
+
+#assetform > div {
+	padding:0px;
+	margin-bottom:0px;
+	margin-top:0px;
+	float:left;
+	width:100%;
+	clear:both;
+
+}
+#assetform  input[type='text'],#assetform  textarea {
+	width:100%;
+}
+#assetform .photo
+{
+	background: #0000000;
+	min-width: 200px;
+	min-height: 200px;
+}
+
+#assetform .upload-file-container input {
+   filter: alpha(opacity=0);
+   opacity: 0;
+}

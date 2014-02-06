@@ -1,0 +1,9 @@
+{
+  "name": "jquery.inview",
+  "version": "0.0.0",
+  "commit": "d17d731568bd29305a9ae93323d37d414caacb16",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/protonet/jquery.inview.git"
+  }
+}

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:WindowedApplication xmlns:fx="http://ns.adobe.com/mxml/2009" 
+					   xmlns:s="library://ns.adobe.com/flex/spark" 
+					   xmlns:mx="library://ns.adobe.com/flex/mx"
+					   xmlns:components="view.components.*"  
+					   creationComplete="facade.startup(this);"  resize="onresize()"
+					   addedToStage="fullscreen()" showStatusBar="false">
+	<fx:Script>
+		<![CDATA[
+		import mx.effects.easing.Exponential;
+		private var facade:ApplicationFacade = ApplicationFacade.getInstance();
+		
+		[Bindable]
+		protected var MAX_HEIGHT:int = 720;
+		
+		[Bindable] 
+		protected var MAX_WIDTH:int = 1280;
+			
+		[Bindable] 
+		protected var RELATIVE_SCALE:Number =1;
+		
+		protected var MAX_RES_X:int = 0;
+		protected var MAX_RES_Y:int = 0;
+			
+		protected function fullscreen(e:Event=null):void
+		{
+			stage.displayState =  StageDisplayState.FULL_SCREEN_INTERACTIVE;
+			
+			stage.scaleMode = "noScale";
+			this.reScaleMainContent();
+		}
+			protected function reScaleMainContent():void
+			{
+				screenScale();
+				this.newsScreen.scaleX = Math.max(1,scale);
+				this.newsScreen.scaleY = Math.max(1,scale);
+				
+				//centerPopups();
+				//this.holder.scaleX = Math.max(1,scale);
+				//this.holder.scaleY = Math.max(1,scale);
+				//this.holder.x = (this.stage.stageWidth - this.holder.width*this.holder.scaleX)/2;
+				//this.holder.y = (this.stage.stageHeight - this.holder.height*this.holder.scaleY)/2;
+				//navigationbar.width = this.stage.stageWidth
+			}
+			public function get scale():Number
+			{
+				
+				trace("SCALING TO:"+ MAX_WIDTH+"/"+this.stage.stageWidth+", "+ MAX_HEIGHT+"/"+this.stage.stageHeight);
+				return Math.min( this.stage.stageWidth / MAX_WIDTH,  this.stage.stageHeight / (MAX_HEIGHT));
+			}
+			protected function onresize(e:Event=null):void
+			{
+				try
+				{
+					this.reScaleMainContent();
+					
+				} catch (error:Error)
+				{
+				}
+			}
+			protected function screenScale():void
+			{
+				if (Capabilities.screenResolutionX!=MAX_RES_X || Capabilities.screenResolutionY!=MAX_RES_Y)
+				{
+					MAX_HEIGHT = MAX_HEIGHT;
+					// if screen capability is smaller than design resolution do inital scale
+					if (MAX_WIDTH > Capabilities.screenResolutionX || MAX_HEIGHT > Capabilities.screenResolutionY)
+					{
+						RELATIVE_SCALE = Math.min(1, Math.min(MAX_WIDTH/ Capabilities.screenResolutionX, MAX_HEIGHT/ (Capabilities.screenResolutionY)));
+					}
+					MAX_RES_X = Capabilities.screenResolutionX;
+					MAX_RES_Y = Capabilities.screenResolutionY;
+					MAX_WIDTH  = MAX_WIDTH * RELATIVE_SCALE;
+					MAX_HEIGHT = MAX_HEIGHT * RELATIVE_SCALE;
+				}
+			}
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+		<mx:Move id="slideInEffect" yFrom="5000" easingFunction="{Exponential.easeOut}" duration="800"/>
+		<mx:Fade id="fadeOut" duration="400" alphaFrom="1.0" alphaTo="0.0"/>
+		<mx:Fade id="fadeIn" duration="400" alphaFrom="0.0" alphaTo="1.0"/>
+			
+	</fx:Declarations>
+	<fx:Style source="assets/Fonts.css" />
+	<fx:Style source="assets/main.css" />
+	<mx:Canvas id="mainViewStack" left="0" top="0" right="0" bottom="0" >
+		
+			<mx:ViewStack id="vwStack" left="0" top="0" right="0" bottom="0" resizeToContent="true" creationPolicy="auto">
+				<mx:VBox />
+				<components:SplashScreen id="splashScreen" showEffect="{slideInEffect}" hideEffect="{fadeOut}" />
+				<components:VideoView id="videoScreen" width="100%" height="100%"  showEffect="{fadeIn}" hideEffect="{fadeOut}"/>
+				<components:NewsView id="newsScreen" scaleX="{scale}"  scaleY="{scale}" showEffect="{fadeIn}" hideEffect="{fadeOut}"/>
+				<components:BrowserView id="browserScreen" width="100%" height="100%"  showEffect="{fadeIn}" hideEffect="{fadeOut}"/>
+				<components:PortfolioView id="portfolioScreen"  width="100%" height="100%"  showEffect="{fadeIn}" hideEffect="{fadeOut}"/>
+				<components:MainScreen id="mainScreen" showEffect="{fadeIn}" />
+			</mx:ViewStack>
+	</mx:Canvas>
+</s:WindowedApplication>

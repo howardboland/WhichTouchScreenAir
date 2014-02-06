@@ -1,0 +1,37 @@
+#login {
+	float:left;
+	width: auto;
+	clear:both;
+	border:1px solid #aaaaaa;
+	margin:60px;
+	padding:10px 30px 10px 30px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	background: #fcfcfc;
+	
+}
+#login div {
+	margin-bottom: 5px;
+	float:left;
+	clear: both;
+
+}
+
+#login div label {
+	width: 120px;
+	float:left;
+	display: table-cell;
+	
+}
+#login div input[type='text'], #login div input[type='password'] {
+	width: 200px;
+	float:left;
+	display: table-cell;
+	
+}
+#login div:last-child
+{
+	text-align: right;
+		width: 100%;
+	
+}

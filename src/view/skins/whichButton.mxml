@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+
+    ADOBE SYSTEMS INCORPORATED
+    Copyright 2008 Adobe Systems Incorporated
+    All Rights Reserved.
+
+    NOTICE: Adobe permits you to use, modify, and distribute this file
+    in accordance with the terms of the license agreement accompanying it.
+
+-->
+
+<!--- The default skin class for the Spark Button component.  
+
+       @see spark.components.Button
+        
+      @langversion 3.0
+      @playerversion Flash 10
+      @playerversion AIR 1.5
+      @productversion Flex 4
+-->
+<s:SparkButtonSkin xmlns:fx="http://ns.adobe.com/mxml/2009" 
+             xmlns:s="library://ns.adobe.com/flex/spark" 
+             xmlns:fb="http://ns.adobe.com/flashbuilder/2009"
+			 width="234.5" height="47.6"
+             alpha.disabled="0.5">
+     
+    <fx:Metadata>
+        <![CDATA[ 
+        /** 
+         * @copy spark.skins.spark.ApplicationSkin#hostComponent
+         */
+        [HostComponent("spark.components.Button")]
+        ]]>
+    </fx:Metadata>
+    
+    <fx:Script fb:purpose="styling">
+        <![CDATA[         
+            import spark.components.Group;
+            /* Define the skin elements that should not be colorized. 
+            For button, the graphics are colorized but the label is not. */
+            static private const exclusions:Array = ["labelDisplay"];
+            
+            /** 
+             * @private
+             */     
+            override public function get colorizeExclusions():Array {return exclusions;}
+            
+            /**
+             * @private
+             */
+            override protected function initializationComplete():void
+            {
+                useChromeColor = true;
+                super.initializationComplete();
+            }  
+            
+            /**
+             *  @private
+             */
+            override protected function updateDisplayList(unscaledWidth:Number, unscaledHeight:Number) : void
+            {
+                var cr:Number = getStyle("cornerRadius");
+                
+                if (cornerRadius != cr)
+                {
+                    cornerRadius = cr;
+                    shadow.radiusX = cornerRadius;
+                    fill.radiusX = cornerRadius;
+                  //  highlight.radiusX = cornerRadius;
+                }
+                
+                
+                super.updateDisplayList(unscaledWidth, unscaledHeight);
+            }
+            
+            private var cornerRadius:Number = 1.73;
+                                 
+        ]]>        
+    </fx:Script>
+        
+    <!-- states -->
+    <s:states>
+        <s:State name="up" />
+        <s:State name="over" />
+        <s:State name="down" />
+        <s:State name="disabled" />
+    </s:states>
+    
+	<s:Rect top="0" bottom="0" left="0" right="0" radiusX="1.73" radiusY="1.73" id="shadow">
+		<s:fill>
+			<s:SolidColor color="#3C7797"/>
+		</s:fill>
+	</s:Rect>
+	
+	<s:Rect top="0" bottom="2" left="0" right="2" radiusX="1.73" radiusY="1.73" id="fill">
+		<s:fill>
+			<s:SolidColor color="#5BAFE6"/>
+		</s:fill>
+	</s:Rect>
+	
+	
+	<s:Group left="180" right="0" top="0" bottom="2">
+		<s:Rect top="0" bottom="0" left="20" right="0">
+			<s:fill>
+				<s:SolidColor color="#4689B0"/>
+			</s:fill>
+		</s:Rect>
+		<s:Path id="skew"
+				data="M8.64453 0 53.5977 0C54.5527 0 55.3271 0.773438 55.3271 1.72852L55.3271 45.8184C55.3271 46.7715 54.5527 47.5469 53.5977 47.5469L0 47.5469"
+				winding="nonZero"
+				left="0" right="0" top="0" bottom="0">
+			<s:fill>
+				<s:SolidColor color="#4689B0"/>
+			</s:fill>
+		</s:Path>
+		<s:Group width="14" height="16" verticalCenter="0" horizontalCenter="5" id="icon">
+			<s:Path y="8.64453" winding="nonZero"  data="M6.4834 0C2.90332 0 0 2.9043 0 6.48242 0 7.67773 0.96582 8.64453 2.15918 8.64453L10.8047 8.64453C12 8.64453 12.9658 7.67773 12.9658 6.48242 12.9658 2.9043 10.0625 0 6.4834 0Z">
+				<s:fill>
+					<s:SolidColor color="#FFFFFF"/>
+				</s:fill>
+			</s:Path>
+			<s:Ellipse x="3.24219" width="6.48242" height="6.48242">
+				<s:fill>
+					<s:SolidColor color="#FFFFFF"/>
+				</s:fill>
+			</s:Ellipse>
+		</s:Group>
+	</s:Group>
+	
+	<s:Label  id="labelDisplay" left="21.4287" top="15" right="64.0287" bottom="10"  textAlign="left"  kerning="on" lineHeight="20.748"  >
+	</s:Label>
+    
+	<s:Rect top="0" bottom="0" alpha="0" alpha.over=".2" left="0" right="0" radiusX="1.73" radiusY="1.73" id="highlight">
+		<s:fill>
+			<s:SolidColor color.over="#ffffff"/>
+		</s:fill>
+	</s:Rect>
+</s:SparkButtonSkin>

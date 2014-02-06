@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx" width="24" height="47">
+		<s:Group d:type="layer" d:userLabel="Layer 1">
+			<s:Path winding="nonZero" ai:seqID="1" data="M18.2266 23.3301 0 5.13574 0 0.375977 0.439453 0 23.8613 23.3926 0.439453 46.8799 0 46.4404 0 41.4932 18.2266 23.3301Z">
+				<s:fill>
+					<s:SolidColor color="#6BBCEA"/>
+				</s:fill>
+	  </s:Path>
+		</s:Group>
+</s:Group>

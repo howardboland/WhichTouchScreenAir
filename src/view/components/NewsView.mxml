@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:NavigatorContent xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx" width="1280" height="720"  creationComplete="onCreate(event)">
+	<fx:Script>
+		<![CDATA[
+			import caurina.transitions.Tweener;
+			
+			import com.which.utils.Console;
+						
+			
+			import mx.effects.easing.Exponential;
+			
+			public static var AUTO:String 			= "AUTO";
+			public static var NEXT_ITEM:String 		= "NEXT_ITEM";
+			public static var PREVIOUS_ITEM:String 	= "PREVIOUS_ITEM";
+			public static var GO_BACK:String 		= "GO_BACK";
+			public static var GO_WEBSITE:String 	= "GO_WEBSITE";
+			public static var GO_PORTFOLIO:String 	= "GO_PORTFOLIO";
+			
+			protected var exitEvent:String;
+			
+			[Bindable]
+			public var header:String = "";
+			
+			[Bindable]
+			public var title:String = "";
+			
+			[Bindable]
+			public var body:String = "";
+			
+			[Bindable]
+			public var url:String = "";
+			
+			[Bindable]
+			public var imageURL:String = "";
+			
+			protected var interactionTimer:Timer;
+			protected var interaction:Boolean = false;
+
+			public function populate( data:Object ):void
+			{
+				//for (var m in data)
+				//Console.log("data: "+m+" "+data[m], this)
+				if (data!=null)
+				{
+					stage.quality = "high";
+					header = data["header"]==null ? "" : data["header"];
+					title = data["title"]==null ? "" : data["title"];
+					body =  data["body"]==null ? "" : data["body"];
+					url =  data["url"]==null ? "" : data["url"];
+					imageURL =  data["imageURL"]==null ? "" : data["imageURL"];
+					transitionIn();
+					detectStart();
+				}
+				
+				
+				Console.log("header:"+header,this);
+				
+			}
+			
+			protected function detectStart():void
+			{
+				
+				detectStop();
+				resetDetected();
+				
+				stage.addEventListener( MouseEvent.MOUSE_MOVE, interactionDetected );
+				
+				
+				
+			}
+			protected function checkInteraction( e:Event ):void
+			{
+				if (!interaction)
+				{
+					detectStop();
+					exitEvent = AUTO;
+					this.transitionOut();
+				} else {
+					resetDetected();
+					
+				}
+				
+			}
+			protected function interactionDetected( e:Event ):void
+			{
+				
+				interaction = true;
+				
+			}
+			protected function resetDetected( e:Event=null ):void
+			{
+				
+				interaction = false;
+				if (interactionTimer!=null)
+				{
+					interactionTimer.stop();
+					interactionTimer.removeEventListener(TimerEvent.TIMER, checkInteraction);
+					interactionTimer = null;
+				}
+				interactionTimer = new Timer(12000);
+				interactionTimer.removeEventListener(TimerEvent.TIMER, checkInteraction);
+				interactionTimer.addEventListener(TimerEvent.TIMER, checkInteraction);
+				interactionTimer.start();
+			}
+			protected function detectStop( e:Event=null ):void
+			{
+				stage.removeEventListener( MouseEvent.MOUSE_MOVE, interactionDetected );
+				if (interactionTimer!=null)
+				{
+					interactionTimer.stop();
+					interactionTimer.removeEventListener(TimerEvent.TIMER, checkInteraction);
+					interactionTimer = null;
+				}
+			}
+			protected function onCreate( e:Event ):void
+			{
+				Console.log("onCreate", this);
+			}
+			protected function click( e:MouseEvent = null ):void
+			{
+				switch (e.target) 
+				{
+					case this.btnNext:
+						exitEvent = NEXT_ITEM;
+						transitionOut();
+					break;
+					case this.btnPrevious:
+						exitEvent = PREVIOUS_ITEM;
+						transitionOut();
+					break;
+					case this.btnBack:
+						exitEvent = GO_BACK;
+						transitionOutComplete();
+					break;
+					case this.btnWeb:
+						exitEvent = GO_WEBSITE;
+						transitionOutComplete();
+					break;
+					case this.btnPortfolio:
+						exitEvent = GO_PORTFOLIO;
+						transitionOutComplete();
+					
+					break;
+				}
+				
+			}
+			protected function transitionOut():void
+			{
+				Console.log("transitionOut",this);
+				detectStop();
+				Tweener.addTween(bodyText, {delay:0, time:.5, alpha: 0, transition:"easeinoutquad"});
+				Tweener.addTween(titleText, {delay:0.1, time:.5, alpha: 0, transition:"easeinoutquad"});
+				
+				Tweener.addTween(headerText, {delay:0.2, time:.5, alpha: 0, transition:"easeinoutquad", onComplete: this.transitionOutComplete});
+			}
+			protected function transitionIn( e:Event =null):void
+			{
+				Console.log("transitionIn",this);
+				Tweener.addTween(headerText, {delay:0, time:.5, alpha: 1, transition:"easeinoutquad"});
+				Tweener.addTween(titleText, {delay:0.1, time:.5, alpha: 1, transition:"easeinoutquad"});
+				Tweener.addTween(bodyText, {delay:0.2, time:.5, alpha: 1, transition:"easeinoutquad"});
+			}
+			protected function transitionOutComplete( e:Event=null ):void
+			{
+				detectStop();
+				Console.log("transitionOutComplete:"+this.exitEvent,this);
+				this.dispatchEvent( new Event( this.exitEvent ) );
+			}
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+		<mx:Move id="slideInEffect" yFrom="5000" easingFunction="{Exponential.easeOut}" duration="1300"/>
+		<mx:Fade id="fadeOut" duration="1000" alphaFrom="1.0" alphaTo="0.0"/>
+		<mx:Fade id="fadeIn" duration="1000" alphaFrom="0.0" alphaTo="1.0"/>
+	</fx:Declarations>
+
+	
+	<s:Button id="btnBack" skinClass="view.skins.BackType"  y="55" x="100" label="B A C K" click="click(event)" />	
+	<s:Image width="78" height="50" smooth="true" smoothingQuality="high" y="45" x="1120" source="@Embed(source='resources/images/which-logo.png')" />
+	<s:Image width="100%" height="100%" smooth="true" smoothingQuality="high" source="{imageURL}" includeInLayout="{imageURL!=''}" />
+	<s:VGroup x="100" y="125" width="946.771">
+		<s:RichText id="headerText" styleName="newsHeader"  kerning="on" 
+					 whiteSpaceCollapse="preserve"  
+					 showEffect="{slideInEffect}" hideEffect="{fadeOut}">
+			<s:content><s:span>{header}</s:span></s:content>
+		</s:RichText>
+		
+		<s:RichText id="titleText" styleName="newsTitle" paddingBottom="30"  kerning="on" whiteSpaceCollapse="preserve" >
+			<s:content><s:span>{title}</s:span></s:content>
+		</s:RichText>
+		
+		
+		<s:RichText styleName="newsBody" id="bodyText" columnCount="1" textAlign="left" tabStops="S36 S72 S108 S144 S180 S216 S252 S288 S324 S360 S396 S432 S468 S504 S540 S576 S612 S648 S684 S720 S756 S792 S828 S864 S900 S936" kerning="on"  whiteSpaceCollapse="preserve" width="100%">
+			<s:content><s:span>{body}</s:span></s:content>
+		</s:RichText>
+	</s:VGroup>
+	
+	<s:Button id="btnNext" x="1225" y="335" skinClass="view.skins.ArrowButton" click="click(event)" />
+	<s:Button id="btnPrevious" x="50" y="382" skinClass="view.skins.ArrowButton" rotation="180" click="click(event)" />
+	<s:Button id="btnWeb" skinClass="view.skins.whichButton" visible="{url!=''}" y="650" x="100" label="Visit Webpage" click="click(event)" />
+	<s:Button id="btnPortfolio" skinClass="view.skins.whichButton" y="650" x="800" label="Portfolio" click="click(event)" />	
+	
+</s:NavigatorContent>

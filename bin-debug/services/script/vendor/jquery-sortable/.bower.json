@@ -1,0 +1,15 @@
+{
+  "name": "jquery-sortable",
+  "homepage": "https://github.com/johnny/jquery-sortable",
+  "version": "0.9.11",
+  "_release": "0.9.11",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.9.11",
+    "commit": "8ad566593295b09d9fe219afc99889594c3cd3d1"
+  },
+  "_source": "git://github.com/johnny/jquery-sortable.git",
+  "_target": "~0.9.11",
+  "_originalSource": "git://github.com/johnny/jquery-sortable",
+  "_direct": true
+}

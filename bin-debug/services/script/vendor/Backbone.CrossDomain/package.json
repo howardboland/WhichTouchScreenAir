@@ -1,0 +1,41 @@
+{
+  "name": "backbone-crossdomain",
+  "description": "An extension for Backbone.js with a Sync that adds support for IE 7-9 CORS requests using IE's XDomainRequest Object while maintaining compatibility with non-IE systems.",
+  "version": "0.2.1",
+  "homepage": "https://github.com/victorquinn/Backbone.CrossDomain",
+  "author": {
+    "name": "Victor Quinn",
+    "email": "mail@victorquinn.com",
+    "url": "http://victorquinn.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/victorquinn/Backbone.CrossDomain.git"
+  },
+  "bugs": {
+    "url": "https://github.com/victorquinn/Backbone.CrossDomain/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/victorquinn/Backbone.CrossDomain/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "Gruntfile.js",
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt-contrib-qunit": "0.1.1rc6",
+    "grunt": "0.4.0rc7"
+  },
+  "keywords": [
+    "backbone",
+    "plugin",
+    "cors",
+    "ie"
+  ]
+}

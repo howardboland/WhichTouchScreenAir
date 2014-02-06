@@ -1,0 +1,9 @@
+{
+  "name": "jquery-dateFormat",
+  "version": "0.0.0",
+  "commit": "434c7930c8a481d6ff572b2befa57940516fadea",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/phstc/jquery-dateFormat"
+  }
+}

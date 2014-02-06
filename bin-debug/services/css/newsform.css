@@ -1,0 +1,25 @@
+#newsform {
+	
+	display:none;
+	float:left;
+	margin-left:20px;
+	width: 450px;
+
+
+	/*position:absolute;
+	bottom:0;
+*/
+}
+
+#newsform > div {
+	padding:0px;
+	margin-bottom:0px;
+	margin-top:0px;
+	float:left;
+	width:100%;
+	clear:both;
+
+}
+#newsform  input[type='text'],#newsform  textarea {
+	width:100%;
+}

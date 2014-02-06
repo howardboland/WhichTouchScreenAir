@@ -1,0 +1,20 @@
+define(['backbone'], function(Backbone){
+var Item = Backbone.Model.extend({
+		defaults : {
+			id : -1, pid:-1, userid, name: '', body: '', 
+			startdate: null, enddate: null, posted: null,
+			location: '', published: -1,
+			tags: '', author: ''
+
+		},
+		initialize: function()
+		{
+			console.log("Ready");
+		}
+	});
+	return Item;
+});
+
+/*
+	Would be useful to have getters that convert dates into approprate format for display
+*/

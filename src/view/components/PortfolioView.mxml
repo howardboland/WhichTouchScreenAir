@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<components:UIComponentView xmlns:fx="http://ns.adobe.com/mxml/2009" 
+							xmlns:s="library://ns.adobe.com/flex/spark" 
+							xmlns:mx="library://ns.adobe.com/flex/mx" xmlns:components="view.components.*"
+							creationComplete="onCreate(event)">
+	<fx:Script>
+		<![CDATA[
+			import com.which.template.events.TemplateEvent;
+			import com.which.utils.Console;
+			
+			import mx.events.FlexEvent;
+			
+			public static var GO_WEBSITE:String 	= "GO_WEBSITE";
+			public static var GO_NEWS:String 	= "GO_NEWS";
+			public static var AUTO:String 			= "AUTO";
+			
+			protected var application:Application;
+			public var url:String;
+			
+			protected var interactionTimer:Timer;
+			protected var interaction:Boolean = false;
+			
+			protected function onCreate(event:FlexEvent):void
+			{
+				// TODO Auto-generated method stub
+				Console.log("Application starting", this);
+				if (application==null)
+				{
+					application = new Application(  );
+					this.addChild( application );
+					application.addEventListener( TemplateEvent.OPEN_URL, this.openURL );
+					application.addEventListener( TemplateEvent.OPEN_NEWS, this.openNews );
+					
+				}
+				
+			}
+			public function onInit():void
+			{
+				detectStart();
+			}
+			protected function openNews( e:TemplateEvent ):void
+			{
+				this.dispatchEvent( new Event( GO_NEWS ) );
+			}
+			protected function openURL( e:TemplateEvent ):void
+			{
+				detectStop();
+				Console.log("openURL:", this);
+				url = e.url;
+				this.dispatchEvent( new Event( GO_WEBSITE )); 
+			}
+			
+			protected function detectStart():void
+			{
+				
+				detectStop();
+				resetDetected();
+				
+				stage.addEventListener( MouseEvent.MOUSE_MOVE, interactionDetected );
+				
+				
+				
+			}
+			protected function checkInteraction( e:Event ):void
+			{
+				if (!interaction)
+				{
+					detectStop();
+					this.dispatchEvent( new Event( AUTO ));
+					
+				} else {
+					resetDetected();
+					
+				}
+				
+			}
+			protected function interactionDetected( e:Event ):void
+			{
+				
+				interaction = true;
+				
+			}
+			protected function resetDetected( e:Event=null ):void
+			{
+				
+				interaction = false;
+				if (interactionTimer!=null)
+				{
+					interactionTimer.stop();
+					interactionTimer.removeEventListener(TimerEvent.TIMER, checkInteraction);
+					interactionTimer = null;
+				}
+				interactionTimer = new Timer(60000);
+				interactionTimer.removeEventListener(TimerEvent.TIMER, checkInteraction);
+				interactionTimer.addEventListener(TimerEvent.TIMER, checkInteraction);
+				interactionTimer.start();
+			}
+			protected function detectStop( e:Event=null ):void
+			{
+				stage.removeEventListener( MouseEvent.MOUSE_MOVE, interactionDetected );
+				if (interactionTimer!=null)
+				{
+					interactionTimer.stop();
+					interactionTimer.removeEventListener(TimerEvent.TIMER, checkInteraction);
+					interactionTimer = null;
+				}
+			}
+			
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+</components:UIComponentView>
