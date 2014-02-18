@@ -4,12 +4,11 @@
 		 xmlns:mx="library://ns.adobe.com/flex/mx" width="1280" height="720"  creationComplete="onCreate(event)">
 	<fx:Script>
 		<![CDATA[
-			import caurina.transitions.Tweener;
-			
 			import com.which.utils.Console;
-						
 			
 			import mx.effects.easing.Exponential;
+			
+			import caurina.transitions.Tweener;
 			
 			public static var AUTO:String 			= "AUTO";
 			public static var NEXT_ITEM:String 		= "NEXT_ITEM";
@@ -37,7 +36,7 @@
 			
 			protected var interactionTimer:Timer;
 			protected var interaction:Boolean = false;
-
+			
 			public function populate( data:Object ):void
 			{
 				//for (var m in data)
@@ -49,7 +48,9 @@
 					title = data["title"]==null ? "" : data["title"];
 					body =  data["body"]==null ? "" : data["body"];
 					url =  data["url"]==null ? "" : data["url"];
-					imageURL =  data["imageURL"]==null ? "" : data["imageURL"];
+					
+					imageURL =  data["source"]==null ? "" : Preferences.server+Preferences.getHiRes(data["source"]);
+					Console.log("imageURL:"+ imageURL, this );
 					transitionIn();
 					detectStart();
 				}
@@ -177,10 +178,10 @@
 		<mx:Fade id="fadeIn" duration="1000" alphaFrom="0.0" alphaTo="1.0"/>
 	</fx:Declarations>
 
-	
+	<s:Image width="100%" height="100%" smooth="true" smoothingQuality="high" source="{imageURL}" includeInLayout="{ imageURL!='' }" visible="{ imageURL!='' }" />
 	<s:Button id="btnBack" skinClass="view.skins.BackType"  y="55" x="100" label="B A C K" click="click(event)" />	
 	<s:Image width="78" height="50" smooth="true" smoothingQuality="high" y="45" x="1120" source="@Embed(source='resources/images/which-logo.png')" />
-	<s:Image width="100%" height="100%" smooth="true" smoothingQuality="high" source="{imageURL}" includeInLayout="{imageURL!=''}" />
+	
 	<s:VGroup x="100" y="125" width="946.771">
 		<s:RichText id="headerText" styleName="newsHeader"  kerning="on" 
 					 whiteSpaceCollapse="preserve"  

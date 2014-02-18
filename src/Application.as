@@ -394,7 +394,7 @@
 			var theTarget:DisplayObject3D=component;
 			var theZoomFactor:Number=zoom;
 			setClickable(false);
-			var self = this;;
+			var self:Application = this;
 			Tweener.addTween(camera.target, {delay:theDelay, time:0.7, transition:"easeInOutquad", onStart:function () : void
 			{
 				isZooming = true;

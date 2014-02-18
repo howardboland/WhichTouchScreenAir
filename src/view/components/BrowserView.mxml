@@ -15,7 +15,7 @@
 			[Bindable]
 			protected var url:String="";
 			protected var htmlLoader:HTMLLoader;
-			protected var waitingForInit = true;
+			protected var waitingForInit:Boolean = true;
 
 			
 			protected function exit(event:Event):void
@@ -35,7 +35,7 @@
 				Console.log("*** Onstage BrowserView ***", this);
 				
 			}
-			protected function checkInit( e:Event )
+			protected function checkInit( e:Event ):void
 			{
 				if (this.url!="" && waitingForInit)
 				{
@@ -65,14 +65,22 @@
 				htmlLoader.addEventListener( LocationChangeEvent.LOCATION_CHANGING, onURLChanging );
 				htmlLoader.addEventListener( Event.HTML_DOM_INITIALIZE, onURLCompleted);
 				htmlLoader.addEventListener( Event.HTML_RENDER, onURLCompleted);
-				
+				htmlLoader.addEventListener( IOErrorEvent.STANDARD_ERROR_IO_ERROR, netError );
+				htmlLoader.addEventListener( IOErrorEvent.NETWORK_ERROR, netError );
 				htmlLoader.addEventListener( HTMLUncaughtScriptExceptionEvent.UNCAUGHT_SCRIPT_EXCEPTION, error );
 				htmlLoader.load( new URLRequest( url ) );
 				
 			}
+			protected function netError( e:IOErrorEvent ):void
+			{
+				status_label.text = "ERROR! "+e.text.toString();	
+			}
 			protected function error( e: HTMLUncaughtScriptExceptionEvent):void
 			{	
 				Console.log("Error: "+ e.exceptionValue.toString(), this);
+				
+
+					
 				
 			}
 			protected function back( e:MouseEvent=null ):void
