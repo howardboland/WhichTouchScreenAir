@@ -194,7 +194,7 @@
 		</s:RichText>
 		
 		
-		<s:RichText styleName="newsBody" id="bodyText" columnCount="1" textAlign="left" tabStops="S36 S72 S108 S144 S180 S216 S252 S288 S324 S360 S396 S432 S468 S504 S540 S576 S612 S648 S684 S720 S756 S792 S828 S864 S900 S936" kerning="on"  whiteSpaceCollapse="preserve" width="100%">
+		<s:RichText styleName="newsBody" id="bodyText" columnCount="1" fontSize="24" lineHeight="28" textAlign="left" tabStops="S36 S72 S108 S144 S180 S216 S252 S288 S324 S360 S396 S432 S468 S504 S540 S576 S612 S648 S684 S720 S756 S792 S828 S864 S900 S936" kerning="on"  whiteSpaceCollapse="preserve" width="55%">
 			<s:content><s:span>{body}</s:span></s:content>
 		</s:RichText>
 	</s:VGroup>
