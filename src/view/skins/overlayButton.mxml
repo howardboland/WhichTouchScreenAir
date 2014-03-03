@@ -88,7 +88,7 @@
     
 	
 	
-	<s:Label id="labelDisplay" fontSize="28" textAlign="center" fontFamily="Standard-Light" kerning="on" lineHeight="28"  >
+	<s:Label id="labelDisplay" fontSize="28" textAlign="center" color="#000000" fontFamily="Standard-Light" kerning="on" lineHeight="28"  >
 		<s:filters>
 			<s:DropShadowFilter distance="1" angle="180" alpha="0.2"/>
 		</s:filters>

@@ -79,6 +79,9 @@
         private var image2:Image;
         private var image1:Image;
 		
+		//Leigh Editions
+		public var xVar:Number;
+		
         private var videoFormat:int;
         private var imageShadow:Image;
         private var depthDifference:int;
@@ -187,6 +190,8 @@
 			this.removeEventListener( Event.ADDED_TO_STAGE, init);
 			renderer = new BasicRenderEngine();
 			viewport = new Viewport3D(this.stage.stageWidth/2, this.stage.stageHeight/2, true, false, true, true );
+			
+			xVar = (this.stage.stageWidth/2);
 			
 			viewport.mouseEnabled = true;
 			scene = new Scene3D();
