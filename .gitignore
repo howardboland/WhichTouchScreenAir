@@ -6,3 +6,7 @@
 *.psd
 *.air
 .actionScriptProperties
+
+bin-debug/Main.swf
+
+*.p12
