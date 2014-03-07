@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <s:NavigatorContent xmlns:fx="http://ns.adobe.com/mxml/2009" 
 		 xmlns:s="library://ns.adobe.com/flex/spark" 
-		 xmlns:mx="library://ns.adobe.com/flex/mx" width="1280" height="720"  creationComplete="onCreate(event)">
+		 xmlns:mx="library://ns.adobe.com/flex/mx" width="1280" height="720"  creationComplete="onCreate(event)" xmlns:components="view.components.*">
 	<fx:Script>
 		<![CDATA[
 			import com.which.utils.Console;
@@ -9,6 +9,10 @@
 			import mx.effects.easing.Exponential;
 			
 			import caurina.transitions.Tweener;
+			
+			
+
+			
 			
 			public static var AUTO:String 			= "AUTO";
 			public static var NEXT_ITEM:String 		= "NEXT_ITEM";
@@ -37,6 +41,9 @@
 			protected var interactionTimer:Timer;
 			protected var interaction:Boolean = false;
 			
+			
+			
+			
 			public function populate( data:Object ):void
 			{
 				//for (var m in data)
@@ -50,9 +57,27 @@
 					url =  data["url"]==null ? "" : data["url"];
 					
 					imageURL =  data["source"]==null ? "" : Preferences.server+Preferences.getHiRes(data["source"]);
-					Console.log("imageURL:"+ imageURL, this );
-					transitionIn();
-					detectStart();
+					Console.log("imageURL:"+imageURL, this);
+					if (data["source"]!=null)
+					{
+						if (overlay!=null)
+						{
+							this.overlay.visible = true;
+							
+						}
+					} else {
+						if (overlay!=null)
+						{
+							this.overlay.visible = false;
+							
+						}
+						this.overlay.visible = true;
+						transitionIn();
+						detectStart();
+					}
+					
+					
+					
 				}
 				
 				
@@ -118,6 +143,8 @@
 			protected function onCreate( e:Event ):void
 			{
 				Console.log("onCreate", this);
+				
+				
 			}
 			protected function click( e:MouseEvent = null ):void
 			{
@@ -151,6 +178,13 @@
 			{
 				Console.log("transitionOut",this);
 				detectStop();
+				Tweener.addTween(btnNext, {delay:0, time:.5, alpha: 0, transition:"easeinoutquad"});
+				Tweener.addTween(btnPrevious, {delay:0, time:.5, alpha: 0, transition:"easeinoutquad"});
+				Tweener.addTween(btnWeb, {delay:0, time:.5, alpha: 0, transition:"easeinoutquad"});
+				Tweener.addTween(btnPortfolio, {delay:0, time:.5, alpha: 0, transition:"easeinoutquad"});
+				
+				
+				Tweener.addTween(bgImage, {delay:0.2, time:.5, alpha: 1, transition:"easeinoutquad"});
 				Tweener.addTween(bodyText, {delay:0, time:.5, alpha: 0, transition:"easeinoutquad"});
 				Tweener.addTween(titleText, {delay:0.1, time:.5, alpha: 0, transition:"easeinoutquad"});
 				
@@ -159,9 +193,15 @@
 			protected function transitionIn( e:Event =null):void
 			{
 				Console.log("transitionIn",this);
+				Tweener.addTween(btnNext, {delay:0, time:.5, alpha: 1, transition:"easeinoutquad"});
+				Tweener.addTween(btnPrevious, {delay:0, time:.5, alpha: 1, transition:"easeinoutquad"});
+				Tweener.addTween(btnWeb, {delay:0, time:.5, alpha: 1, transition:"easeinoutquad"});
+				Tweener.addTween(btnPortfolio, {delay:0, time:.5, alpha: 1, transition:"easeinoutquad"});
+				
 				Tweener.addTween(headerText, {delay:0, time:.5, alpha: 1, transition:"easeinoutquad"});
 				Tweener.addTween(titleText, {delay:0.1, time:.5, alpha: 1, transition:"easeinoutquad"});
 				Tweener.addTween(bodyText, {delay:0.2, time:.5, alpha: 1, transition:"easeinoutquad"});
+				
 			}
 			protected function transitionOutComplete( e:Event=null ):void
 			{
@@ -169,6 +209,25 @@
 				Console.log("transitionOutComplete:"+this.exitEvent,this);
 				this.dispatchEvent( new Event( this.exitEvent ) );
 			}
+			
+			protected function imageLoaded( e:Event=null ):void
+			{
+				Console.log("image loaded", this);
+				overlay.visible = false;
+				Tweener.addTween(bgImage, {delay:0, time:1, alpha: 1, transition:"easeinoutquad"});	
+				transitionIn();
+				detectStart();
+			}
+			protected function imageLoading( e:ProgressEvent=null ):void
+			{
+				//Console.log("image progress"+e.bytesLoaded, this);
+				percentage.text = Math.round( ( e.bytesLoaded / e.bytesTotal ) * 100 ) + "%";
+				
+			}
+			
+			
+			
+			
 		]]>
 	</fx:Script>
 	<fx:Declarations>
@@ -178,30 +237,38 @@
 		<mx:Fade id="fadeIn" duration="1000" alphaFrom="0.0" alphaTo="1.0"/>
 	</fx:Declarations>
 
-	<s:Image width="100%" height="100%" smooth="true" smoothingQuality="high" source="{imageURL}" includeInLayout="{ imageURL!='' }" visible="{ imageURL!='' }" />
+	<s:VGroup width="100%" height="100%" id="overlay" horizontalAlign="center" verticalAlign="middle">
+		<components:LoaderComp width="30" height="30" horizontalCenter="0" />
+		<s:Label id="percentage" textAlign="center" text="" styleName="loaderPercentage" />
+		<s:Label color="0x000000" text="LOADING - PLEASE WAIT" styleName="loaderCopy" />
+		
+	</s:VGroup>
+	
+	
+	<s:Image id="bgImage" progress="imageLoading(event)" complete="imageLoaded(event)" alpha="0" width="100%" height="100%" smooth="true" smoothingQuality="high" source="{imageURL}" includeInLayout="{ imageURL!='' }" visible="{ imageURL!='' }" />
 	<s:Button id="btnBack" skinClass="view.skins.BackType"  y="55" x="100" label="B A C K" click="click(event)" />	
 	<s:Image width="78" height="50" smooth="true" smoothingQuality="high" y="45" x="1120" source="@Embed(source='resources/images/which-logo.png')" />
 	
 	<s:VGroup x="100" y="125" width="946.771">
-		<s:RichText id="headerText" styleName="newsHeader"  kerning="on" 
+		<s:RichText alpha="0" id="headerText" styleName="newsHeader"  kerning="on" 
 					 whiteSpaceCollapse="preserve"  
 					 showEffect="{slideInEffect}" hideEffect="{fadeOut}">
 			<s:content><s:span>{header}</s:span></s:content>
 		</s:RichText>
 		
-		<s:RichText id="titleText" styleName="newsTitle" paddingBottom="30"  kerning="on" whiteSpaceCollapse="preserve" >
+		<s:RichText alpha="0" id="titleText" styleName="newsTitle" paddingBottom="30"  kerning="on" whiteSpaceCollapse="preserve" >
 			<s:content><s:span>{title}</s:span></s:content>
 		</s:RichText>
 		
 		
-		<s:RichText styleName="newsBody" id="bodyText" columnCount="1" fontSize="24" lineHeight="28" textAlign="left" tabStops="S36 S72 S108 S144 S180 S216 S252 S288 S324 S360 S396 S432 S468 S504 S540 S576 S612 S648 S684 S720 S756 S792 S828 S864 S900 S936" kerning="on"  whiteSpaceCollapse="preserve" width="55%">
+		<s:RichText alpha="0" styleName="newsBody" id="bodyText" columnCount="1" fontSize="24" lineHeight="28" textAlign="left" tabStops="S36 S72 S108 S144 S180 S216 S252 S288 S324 S360 S396 S432 S468 S504 S540 S576 S612 S648 S684 S720 S756 S792 S828 S864 S900 S936" kerning="on"  whiteSpaceCollapse="preserve" width="55%">
 			<s:content><s:span>{body}</s:span></s:content>
 		</s:RichText>
 	</s:VGroup>
 	
-	<s:Button id="btnNext" x="1225" y="335" skinClass="view.skins.ArrowButton" click="click(event)" />
-	<s:Button id="btnPrevious" x="50" y="382" skinClass="view.skins.ArrowButton" rotation="180" click="click(event)" />
-	<s:Button id="btnWeb" skinClass="view.skins.whichButton" visible="{url!=''}" y="650" x="100" label="Visit Webpage" click="click(event)" />
-	<s:Button id="btnPortfolio" skinClass="view.skins.whichButton" y="650" x="100" label="Portfolio" click="click(event)" />	
+	<s:Button  alpha="0" id="btnNext" x="1225" y="335" skinClass="view.skins.ArrowButton" click="click(event)" />
+	<s:Button alpha="0" id="btnPrevious" x="50" y="382" skinClass="view.skins.ArrowButton" rotation="180" click="click(event)" />
+	<s:Button alpha="0" id="btnWeb" skinClass="view.skins.whichButton" visible="{url!=''}" y="650" x="100" label="Visit Webpage" click="click(event)" />
+	<s:Button alpha="0" id="btnPortfolio" skinClass="view.skins.whichButton" y="650" x="100" label="Portfolio" click="click(event)" />	
 	
 </s:NavigatorContent>

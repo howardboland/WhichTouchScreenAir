@@ -49,3 +49,12 @@ s|Label {
 	fontFamily: "Standard-Regular";
 	fontSize: 14;
 }
+
+.loaderPercetage {
+	fontFamily: "Standard-Light";
+	fontSize: 12;
+}
+.loaderCopy {
+	fontFamily: "Standard-Regular";
+	fontSize: 12;
+}
