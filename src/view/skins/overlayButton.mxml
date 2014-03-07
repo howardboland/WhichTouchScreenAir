@@ -86,12 +86,17 @@
         <s:State name="disabled" />
     </s:states>
     
+	<s:Group>
+		<s:Rect width="570" height="60">
+			<s:fill><s:SolidColor color="0x000000" alpha="0.1" /></s:fill>
+		</s:Rect>
+		<s:VGroup>
+			<s:Label id="labelDisplay" fontSize="28" paddingTop="16" paddingLeft="30" textAlign="left" color="#ffffff" fontFamily="Standard-Light" kerning="on" lineHeight="28"  >
+			</s:Label>
+		</s:VGroup>
+	</s:Group>
 	
 	
-	<s:Label id="labelDisplay" fontSize="28" textAlign="center" fontFamily="Standard-Light" kerning="on" lineHeight="28"  >
-		<s:filters>
-			<s:DropShadowFilter distance="1" angle="180" alpha="0.2"/>
-		</s:filters>
-	</s:Label>
+
 
 </s:SparkButtonSkin>

@@ -202,6 +202,6 @@
 	<s:Button id="btnNext" x="1225" y="335" skinClass="view.skins.ArrowButton" click="click(event)" />
 	<s:Button id="btnPrevious" x="50" y="382" skinClass="view.skins.ArrowButton" rotation="180" click="click(event)" />
 	<s:Button id="btnWeb" skinClass="view.skins.whichButton" visible="{url!=''}" y="650" x="100" label="Visit Webpage" click="click(event)" />
-	<s:Button id="btnPortfolio" skinClass="view.skins.whichButton" y="650" x="800" label="Portfolio" click="click(event)" />	
+	<s:Button id="btnPortfolio" skinClass="view.skins.whichButton" y="650" x="100" label="Portfolio" click="click(event)" />	
 	
 </s:NavigatorContent>

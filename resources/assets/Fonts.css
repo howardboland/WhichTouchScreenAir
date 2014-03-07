@@ -8,13 +8,7 @@
 	fontFamily: "Standard-Bold";
 	embedAsCFF: true;
 }
-@font-face
-{
-	src: url("resources/fonts/Stag Sans-Bold.otf");
-	fontFamily: "Standard-Regular";
-	fontWeight:bold;
-	embedAsCFF: true;
-}
+
 @font-face
 {
 	src: url("resources/fonts/Stag Sans-Book.otf");
